@@ -8,18 +8,5 @@ namespace BibliotecaVirtual.Consola.Modelos
 {
     public class Libro
     {
-
-        public int Id;
-        public string Autor;
-        public string Titulo;
-        public string Categoria;
-        public int Año;
-
-
-
-
-
-
-
     }
 }

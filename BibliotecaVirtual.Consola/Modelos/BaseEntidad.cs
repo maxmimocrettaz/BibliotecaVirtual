@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Modelos
 {
-    public class BaseEntidad
+    public abstract class BaseEntidad
     {
+        public int Id { get; set; }
     }
 }

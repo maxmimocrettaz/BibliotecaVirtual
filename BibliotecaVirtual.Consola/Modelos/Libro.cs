@@ -8,5 +8,6 @@ namespace BibliotecaVirtual.Consola.Modelos
 {
     public class Libro
     {
+
     }
 }

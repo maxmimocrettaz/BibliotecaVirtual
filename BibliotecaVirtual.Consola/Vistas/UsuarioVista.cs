@@ -3,48 +3,81 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Controladores
-using System.Modelos
+using BibliotecaVirtual.Consola.Controladores;
+using BibliotecaVirtual.Consola.Modelos;
 
 namespace BibliotecaVirtual.Consola.Vistas
 {
     public class UsuarioVista
     {
         UsuarioController controladorUsuario = new UsuarioController();
-         
+        Usuario nuevoUsuario = new Usuario();
+
         public void CargarUsuario()
         {
-            Usuario nuevoUsuario = new Usuario();
 
             Console.Write("Nombre: ");
-            usuario.Nombre = Console.ReadLine();
+            nuevoUsuario.Nombre = Console.ReadLine();
             Console.Write("Apellido: ");
-            usuario.Apellido = Console.ReadLine();
-            Console.Write("Ingrese DNI sin puntos ni espacios");
-            Console.Write("DNI: ");
-            usuario.DNI = Console.ReadLine();
-            Console.Write("Ingrese Telefono (solo digitos)");
-            Console.Write("Telefono: ");
-            usuario.Telefono = Console.ReadLine();
+            nuevoUsuario.Apellido = Console.ReadLine();
             Console.Write("Email: ");
-            usuario.Correo = Console.ReadLine();
+            nuevoUsuario.Email = Console.ReadLine();
 
-            controladorUsuario.GuardarUsuario(nuevoUsuario)
+            controladorUsuario.NuevoUsuario(nuevoUsuario);
 
         }
 
-        public void MostrarListaUsuarios()
+        public void ObtenerUsuarios()
         {
-            List<Usuario> listadoUsuarios = controladorUsuario.ObtenerUsuarios();
+            List<Usuario> listadousuarios = controladorUsuario.ObtenerUsuarios();
 
-            Console.WriteLine("Listado de Usuarios registrados en el sistema");
+            Console.WriteLine("listado de usuarios registrados en el sistema");
 
-            foreach (var item in listadoUsuarios)
+            foreach (var item in listadousuarios)
             {
-                Console.WriteLine($">Nombre: {item.Nombre} {item.Apellido} -DNI: {item.DNI} -Tel: {item.Telefono} -Email: {item.Correo}");
+                Console.WriteLine($"<Nombre>: {item.Nombre}, <Apellido>: {item.Apellido}, <Email>: {item.Email}");
             }
 
         }
+
+        public void ActualizarUsuario()
+        {
+            string email;
+            string nombre;
+            string apellido;
+            Console.Write("Email: ");
+            email = Console.ReadLine();
+            Console.Write("Nombre: ");
+            nombre = Console.ReadLine();
+            Console.Write("Apellido: ");
+            apellido = Console.ReadLine();
+
+            controladorUsuario.ActualizarUsuario(email, nombre, apellido);
+
+        }
+
+        public void EliminarUsuario()
+        {
+            string email;
+            Console.Write("Email: ");
+            email = Console.ReadLine();
+
+            controladorUsuario.EliminarUsuario(email);
+        }
+
+        public void ObtenerUsuarioPorId()
+        {
+            int id;
+            Usuario usuario;
+            Console.Write("Ingrese Id: ");
+            id = int.Parse(Console.ReadLine());
+
+
+            usuario = controladorUsuario.ObtenerUsuarioPorId(id);
+
+            Console.WriteLine($"<Nombre>: {usuario.Nombre}, <Apellido>: {usuario.Apellido}, <Email>: {usuario.Email}");
+        }
+
 
     }
 }

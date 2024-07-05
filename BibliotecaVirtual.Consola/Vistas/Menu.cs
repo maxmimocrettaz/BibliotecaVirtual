@@ -8,6 +8,7 @@ namespace BibliotecaVirtual.Consola.Vistas
         PrestamoVista VistaPrestamo = new PrestamoVista();
         public void MostrarMenu()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("------Biblioteca Virtual------");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.WriteLine("|                            |");
@@ -16,6 +17,7 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|3) Salir                    |");
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
             int opcion = int.Parse(Console.ReadLine());
             switch (opcion)
             {
@@ -38,6 +40,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
         public void MenuUsuario()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("------Biblioteca Virtual------");
             Console.WriteLine("|          USUARIOS          |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
@@ -50,6 +53,7 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|6) Salir                    |");
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             int opcionU = int.Parse(Console.ReadLine());
             switch (opcionU)
@@ -94,6 +98,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
         public void MenuLibro()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------Biblioteca Virtual------");
             Console.WriteLine("|           LIBROS           |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
@@ -108,6 +113,7 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|8) Salir                    |");
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             int opcionL = int.Parse(Console.ReadLine());
             switch (opcionL)

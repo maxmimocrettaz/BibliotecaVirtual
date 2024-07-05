@@ -1,8 +1,8 @@
-using BibliotecaPrestamos.Model;
+using BibliotecaVirtual.Model;
 
-namespace BibliotecaPrestamos.Repositorio
+namespace BibliotecaVirtual.Repositorio
 {
-    internal class RepoGenerico<T> where T : BaseEntidad   
+    internal class Generico<T> where T : BaseEntidad   
     {
         public T Crear(T obj)
         {

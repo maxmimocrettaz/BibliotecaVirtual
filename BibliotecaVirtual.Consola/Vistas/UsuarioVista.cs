@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Controladores
-using System.Modelos
+﻿using BibliotecaVirtual.Consola.Controladores;
+using BibliotecaVirtual.Consola.Modelos;
 
 namespace BibliotecaVirtual.Consola.Vistas
 {

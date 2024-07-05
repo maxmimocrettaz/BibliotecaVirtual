@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BibliotecaVirtual.Consola.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaVirtual.Consola.Controladores
 {
@@ -24,7 +21,7 @@ namespace BibliotecaVirtual.Consola.Controladores
             {
                 List<Prestamo> lista = context.Prestamos
                     .Include(x => x.Libro)
-                    .Include(x => x.Lector)
+                    .Include(x => x.Usuario)
                     .ToList();
 
                 return lista;

@@ -72,7 +72,7 @@ namespace BibliotecaVirtual.Consola.Vistas
                     break;
                 case 3:
                     Console.Clear();
-                    VistaUsuario.MostrarListaUsuarios();
+                    VistaUsuario.ObtenerUsuarios();
                     Console.WriteLine();
                     MenuUsuario();
                     break;

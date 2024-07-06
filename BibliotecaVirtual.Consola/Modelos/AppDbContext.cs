@@ -39,5 +39,6 @@ namespace BibliotecaVirtual.Consola.Modelos
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Lector> Lectores { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
+        // agregado en desarrollo
     }
 }

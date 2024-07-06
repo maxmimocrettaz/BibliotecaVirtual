@@ -37,7 +37,6 @@ namespace BibliotecaVirtual.Consola.Modelos
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Libro> Libros { get; set; }
-        public DbSet<Lector> Lectores { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
 
         // ---

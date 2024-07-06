@@ -1,70 +1,171 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BibliotecaVirtual.Consola.Vistas;
+﻿using BibliotecaVirtual.Consola.Vistas;
 
 namespace BibliotecaVirtual.Consola.Vistas
 {
-   public class Menu
+    public class Menu
     {
-        UsuarioVista vistaUsuario = new UsuarioVista();
-          
-            public void MostrarMenu()
+        UsuarioVista VistaUsuario = new UsuarioVista();
+        PrestamoVista VistaPrestamo = new PrestamoVista();
+        public void MostrarMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("------Biblioteca Virtual------");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|1) Libros                   |"); 
+            Console.WriteLine("|2) Usuarios                 |");
+            Console.WriteLine("|3) Salir                    |");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            int opcion = int.Parse(Console.ReadLine());
+            switch (opcion)
             {
-                int eleccion;
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("1- Ingrese un usuario");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("2- Obtener Todos los Usuarios");
-                Console.WriteLine("3- Obtener usuario por Id");
-                Console.WriteLine("4- Actualizar Usuario");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("5- Eliminar Usuario");
-                Console.ForegroundColor = ConsoleColor.White;
-
-
-            eleccion = int.Parse(Console.ReadLine());
-
-                switch (eleccion)
-                {
-                    case 1:
-                        Console.WriteLine();
-                        vistaUsuario.CargarUsuario();
-
-                        Console.WriteLine();
-                        MostrarMenu();
-
+                case 1:
+                    Console.Clear();
+                    MenuLibro();
                     break;
+                case 2:
+                    Console.Clear();
+                    MenuUsuario();
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    MostrarMenu();
+                    break;
+            }
+        }
 
-                    case 2:
-                        Console.WriteLine();
-                        vistaUsuario.ObtenerUsuarios();
-                        Console.WriteLine();
-                        MostrarMenu();
-                    break;
-                    case 3:
-                        Console.WriteLine();
-                        vistaUsuario.ObtenerUsuarioPorId();
-                        Console.WriteLine();
-                        MostrarMenu();
-                    break;
+        public void MenuUsuario()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("------Biblioteca Virtual------");
+            Console.WriteLine("|          USUARIOS          |");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|1) Cargar Usuarios          |");
+            Console.WriteLine("|2) Eliminar Usuarios        |");
+            Console.WriteLine("|3) Lista de Usuarios        |");
+            Console.WriteLine("|4) Buscar por Nombre        |");
+            Console.WriteLine("|5) Menu Principal           |");
+            Console.WriteLine("|6) Salir                    |");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
-                    case 4:
-                        Console.WriteLine();
-                        vistaUsuario.ActualizarUsuario();
-                        Console.WriteLine();
-                        MostrarMenu();
+            int opcionU = int.Parse(Console.ReadLine());
+            switch (opcionU)
+            {
+                case 1:
+                    Console.Clear();
+                    VistaUsuario.CargarUsuario();
+                    Console.WriteLine();
+                    MenuUsuario();
                     break;
-                    case 5:
-                        Console.WriteLine();
-                        vistaUsuario.EliminarUsuario();
-                        Console.WriteLine();
-                        MostrarMenu();
+                case 2:
+                    Console.Clear();
+                    //Eliminar Usuario
+                    Console.WriteLine();
+                    MenuUsuario();
                     break;
+                case 3:
+                    Console.Clear();
+                    VistaUsuario.MostrarListaUsuarios();
+                    Console.WriteLine();
+                    MenuUsuario();
+                    break;
+                case 4:
+                    Console.Clear();
+                    // Buscar por Nombre
+                    Console.WriteLine();
+                    MenuUsuario();
+                    break;
+                case 5:
+                    Console.Clear();
+                    MostrarMenu();
+                    break;
+                case 6:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.Clear();
+                    MenuUsuario();
+                    break;
+            }
+        }
 
-                }    
+        public void MenuLibro()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("------Biblioteca Virtual------");
+            Console.WriteLine("|           LIBROS           |");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|1) Prestar Libro            |");
+            Console.WriteLine("|2) Recibir Libro            |");
+            Console.WriteLine("|3) Cargar Libro             |");
+            Console.WriteLine("|4) Eliminar Libro           |");
+            Console.WriteLine("|5) Lista de Libros          |");
+            Console.WriteLine("|6) Buscar por Nombre        |");
+            Console.WriteLine("|7) Menu Principal           |");
+            Console.WriteLine("|8) Salir                    |");
+            Console.WriteLine("|                            |");
+            Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            int opcionL = int.Parse(Console.ReadLine());
+            switch (opcionL)
+            {
+                case 1:
+                    Console.Clear();
+                    VistaPrestamo.Asignar();
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 2:
+                    Console.Clear();
+                    // Recibir libro
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 3:
+                    Console.Clear();
+                    // cargar libro
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 4:
+                    Console.Clear();
+                    //Eliminar libro
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 5:
+                    Console.Clear();
+                    VistaPrestamo.VerPrestamos();
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 6:
+                    Console.Clear();
+                    // Buscar por Nombre
+                    Console.WriteLine();
+                    MenuLibro();
+                    break;
+                case 7:
+                    Console.Clear();
+                    MostrarMenu();
+                    break;
+                case 8:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.Clear();
+                    MenuLibro();
+                    break;
             }
         }
     }
+}

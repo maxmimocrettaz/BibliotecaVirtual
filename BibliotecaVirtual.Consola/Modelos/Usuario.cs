@@ -8,5 +8,9 @@ namespace BibliotecaVirtual.Consola.Modelos
 {
     public class Usuario
     {
+        public Usuario()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+        }
     }
 }

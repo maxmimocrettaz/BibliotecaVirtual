@@ -40,7 +40,7 @@ namespace BibliotecaVirtual.Consola.Modelos
         public DbSet<Lector> Lectores { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
 
-        
+        // ---
         // PR -> puso en algun lado algo
     }
 }

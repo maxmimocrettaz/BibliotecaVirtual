@@ -8,3 +8,7 @@
 
 /* Este cambio es en el original */
 
+using BibliotecaVirtual.Consola.Vistas;
+
+Menu menuAplicacion = new Menu();
+menuAplicacion.MostrarMenu();

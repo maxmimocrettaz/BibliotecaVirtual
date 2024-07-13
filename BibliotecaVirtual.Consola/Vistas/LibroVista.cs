@@ -47,7 +47,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
             foreach (var item in listadoLibros)
             {
-                Console.WriteLine($"Autor: {item.Autor} Titulo: {item.Titulo} Estado: {item.EstaPrestado} ");
+                Console.WriteLine($"Autor: {item.Autor} Titulo: {item.Titulo} Estado: {item.Estado} ");
             }
         }
     }

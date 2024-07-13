@@ -16,12 +16,9 @@ namespace BibliotecaVirtual.Consola.Modelos
         public string Autor { get; set; }
         public EstadoLibroEnum Estado { get; set; }
         public List<Prestamo> Prestamos { get; set; }
-        public Libro(string titulo, string autor)
+        public Libro()
         {
-            Titulo=titulo;
-            Autor=autor;
             Estado = EstadoLibroEnum.Disponible;
         }
-        public Libro() { }
     }
 }

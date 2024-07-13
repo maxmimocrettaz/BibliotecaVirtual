@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaVirtual.Consola.Enumeraciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,18 +14,13 @@ namespace BibliotecaVirtual.Consola.Modelos
         public string Titulo { get; set; }
         [Required]
         public string Autor { get; set; }
-        [Required]  
-        public bool EstaPrestado { get; set; }
-        public List<Prestamo> Prestamos { get; set; } 
-        public Libro(string titulo, string autor, List<Prestamo> usuario, bool estaPrestado)
+        public EstadoLibroEnum Estado { get; set; }
+        public Libro(string titulo, string autor)
         {
             Titulo=titulo;
             Autor=autor;
-            Prestamos=usuario;
-            EstaPrestado=estaPrestado;
+            Estado = EstadoLibroEnum.Disponible;
         }
-
         public Libro() { }
-
     }
 }

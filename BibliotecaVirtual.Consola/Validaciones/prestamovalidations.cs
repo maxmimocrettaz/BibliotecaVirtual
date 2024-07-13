@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaVirtual.Consola.Modelos
+namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public abstract class BaseEntidad
+    public class prestamovalidations
     {
-        public int Id { get; set; }
     }
 }

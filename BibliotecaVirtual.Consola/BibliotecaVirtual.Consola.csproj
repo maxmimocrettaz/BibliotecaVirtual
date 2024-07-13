@@ -17,10 +17,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controladores\" />
-    <Folder Include="Validaciones\" />
-    <Folder Include="Vistas\" />
-  </ItemGroup>
-
 </Project>

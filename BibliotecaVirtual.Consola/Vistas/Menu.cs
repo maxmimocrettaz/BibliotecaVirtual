@@ -6,6 +6,7 @@ namespace BibliotecaVirtual.Consola.Vistas
     {
         UsuarioVista VistaUsuario = new UsuarioVista();
         PrestamoVista VistaPrestamo = new PrestamoVista();
+        //LibroVista VistaLibro = new LibroVista();
         public void MostrarMenu()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -33,6 +34,9 @@ namespace BibliotecaVirtual.Consola.Vistas
                     Environment.Exit(0);
                     break;
                 default:
+                    Console.Clear();
+                    Console.WriteLine("Opcion Invalida");
+                    Console.WriteLine();
                     MostrarMenu();
                     break;
             }
@@ -46,7 +50,7 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.WriteLine("|                            |");
             Console.WriteLine("|1) Cargar Usuarios          |");
-            Console.WriteLine("|2) Eliminar Usuarios        |");
+            Console.WriteLine("|2) Modificar Usuarios       |");
             Console.WriteLine("|3) Lista de Usuarios        |");
             Console.WriteLine("|4) Buscar por Nombre        |");
             Console.WriteLine("|5) Menu Principal           |");
@@ -66,19 +70,19 @@ namespace BibliotecaVirtual.Consola.Vistas
                     break;
                 case 2:
                     Console.Clear();
-                    //Eliminar Usuario
+                    //VistaUsuario.ModificarUsuario();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
                 case 3:
                     Console.Clear();
-                    VistaUsuario.MostrarListaUsuarios();
+                    //VistaUsuario.MostrarTodosLosUsuarios();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
                 case 4:
                     Console.Clear();
-                    // Buscar por Nombre
+                    //VistaUsuario.BuscarPorNombre();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
@@ -91,6 +95,8 @@ namespace BibliotecaVirtual.Consola.Vistas
                     break;
                 default:
                     Console.Clear();
+                    Console.WriteLine("Opcion Invalida");
+                    Console.WriteLine();
                     MenuUsuario();
                     break;
             }
@@ -104,11 +110,11 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.WriteLine("|                            |");
             Console.WriteLine("|1) Prestar Libro            |");
-            Console.WriteLine("|2) Recibir Libro            |");
-            Console.WriteLine("|3) Cargar Libro             |");
-            Console.WriteLine("|4) Eliminar Libro           |");
-            Console.WriteLine("|5) Lista de Libros          |");
-            Console.WriteLine("|6) Buscar por Nombre        |");
+            Console.WriteLine("|2) Devolver Libro           |");
+            Console.WriteLine("|3) Ver Prestamos            |");
+            Console.WriteLine("|4) Registrar Libro          |");
+            Console.WriteLine("|5) Actualizar Libro         |");
+            Console.WriteLine("|6) Lista de Libros          |");
             Console.WriteLine("|7) Menu Principal           |");
             Console.WriteLine("|8) Salir                    |");
             Console.WriteLine("|                            |");
@@ -120,37 +126,37 @@ namespace BibliotecaVirtual.Consola.Vistas
             {
                 case 1:
                     Console.Clear();
-                    VistaPrestamo.Asignar();
+                    //VistaPrestamo.PrestarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
                 case 2:
                     Console.Clear();
-                    // Recibir libro
+                    //VistaPrestamo.DevolverLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
                 case 3:
                     Console.Clear();
-                    // cargar libro
+                    //VistaPrestamo.VerPrestamosActivos();
                     Console.WriteLine();
                     MenuLibro();
                     break;
                 case 4:
                     Console.Clear();
-                    //Eliminar libro
+                    //VistaLibro.ResgistrarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
                 case 5:
                     Console.Clear();
-                    VistaPrestamo.VerPrestamos();
+                    //VistaLibro.ActualizarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
                 case 6:
                     Console.Clear();
-                    // Buscar por Nombre
+                    //VistaLibro.VerTodosLosLibros();
                     Console.WriteLine();
                     MenuLibro();
                     break;
@@ -163,6 +169,8 @@ namespace BibliotecaVirtual.Consola.Vistas
                     break;
                 default:
                     Console.Clear();
+                    Console.WriteLine("Opcion Invalida");
+                    Console.WriteLine();
                     MenuLibro();
                     break;
             }

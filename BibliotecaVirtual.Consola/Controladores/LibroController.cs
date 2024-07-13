@@ -24,13 +24,11 @@ namespace BibliotecaVirtual.Consola.Controladores
         {
             using (AppDbContext context = new AppDbContext())
             {
-                var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
-                if (libros != null)
-                {
-                    libros.EstaPrestado = true;
+                 var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
 
-                    context.SaveChanges();   
-                }
+                 libros.EstaPrestado = true;
+
+                 context.SaveChanges();                
             }
         }
 

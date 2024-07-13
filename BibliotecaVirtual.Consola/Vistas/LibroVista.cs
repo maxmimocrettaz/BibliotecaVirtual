@@ -25,13 +25,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
             libroNuevo.Titulo = Console.ReadLine();
 
-
-           
-
          librosController.RegistrarLibro(libroNuevo);
-            
-
-
         }
         
         public void ActualizarLibro()
@@ -42,7 +36,6 @@ namespace BibliotecaVirtual.Consola.Vistas
            Titulo = Console.ReadLine();
            
             librosController.ActualizarLibro(Titulo);
-
         }
 
 
@@ -57,15 +50,6 @@ namespace BibliotecaVirtual.Consola.Vistas
                 Console.WriteLine($"Autor: {item.Autor} Titulo: {item.Titulo} Estado: {item.EstaPrestado} ");
             }
         }
-
-
-
-
-
-
     }
-
-
-
 }
 

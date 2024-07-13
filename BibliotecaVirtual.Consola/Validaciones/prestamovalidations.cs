@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BibliotecaVirtual.Consola.Modelos;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public class prestamovalidations : AbstractValidator<prestamovalidations>
+    public class prestamovalidations : AbstractValidator<Prestamo>
     {
+        public prestamovalidations() 
+        {
+            RuleFor(x => x.Libro).NotEmpty();
+            RuleFor(x => x.Usuario).NotEmpty();
+        }
     }
 }

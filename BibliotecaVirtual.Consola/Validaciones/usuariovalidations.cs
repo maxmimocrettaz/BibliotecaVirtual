@@ -12,7 +12,8 @@ namespace BibliotecaVirtual.Consola.Validaciones
     {
       public usuariovalidations()
         {
-          
+            RuleFor(x => x.Nombre).NotEmpty().NotNull().WithMessage("Este parametro no puede estar vacio");
+            RuleFor(x => x.Prestamos).NotEmpty();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BibliotecaVirtual.Consola.Modelos;
-using BibliotecaVirtual.Repositorio;
-using Microsoft.EntityFrameworkCore;
+using BibliotecaVirtual.Consola.Respositorios;
+using BibliotecaVirtual.Consola.Enumeraciones;
 
 namespace BibliotecaVirtual.Consola.Controladores
 {
@@ -8,7 +8,7 @@ namespace BibliotecaVirtual.Consola.Controladores
     {
         public Prestamo PrestarLibro(Prestamo prestamo)
         {
-            var repo = new RepositorioGenerico<Prestamo>();
+            var repo = new RepositorioPRestamo();
             
             repo.Crear(prestamo);
 
@@ -18,9 +18,9 @@ namespace BibliotecaVirtual.Consola.Controladores
 
         public Prestamo DevolverLibro(Prestamo prestamo)
         {
-            var repo = new RepositorioGenerico<Prestamo>();
+            var repo = new RepositorioPRestamo();
 
-            prestamo.EstadoPrestamoEnum.Finalizado;
+            prestamo.Estado = EstadoPrestamoEnum.Finalizado;
 
             repo.Actualizar(prestamo);
 
@@ -29,7 +29,7 @@ namespace BibliotecaVirtual.Consola.Controladores
 
         public List<Prestamo> ObtenerPrestamosActivos()
         {
-            var repo = new RepositorioPRestamo<Prestamo>();
+            var repo = new RepositorioPRestamo();
 
             var lista = repo.VerTodos();
 

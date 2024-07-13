@@ -78,19 +78,19 @@ namespace BibliotecaVirtual.Consola.Vistas
                     break;
                 case "2":
                     Console.Clear();
-                    //VistaUsuario.ModificarUsuario();
+                    VistaUsuario.ModificarUsuario();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
                 case "3":
                     Console.Clear();
-                    //VistaUsuario.MostrarTodosLosUsuarios();
+                    VistaUsuario.MostrarTodosLosUsuarios();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
                 case "4":
                     Console.Clear();
-                    //VistaUsuario.BuscarPorNombre();
+                    VistaUsuario.BuscarPorNombre();
                     Console.WriteLine();
                     MenuUsuario();
                     break;

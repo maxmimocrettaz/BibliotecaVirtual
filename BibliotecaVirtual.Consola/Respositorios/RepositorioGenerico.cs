@@ -1,8 +1,8 @@
-using BibliotecaVirtual.Model;
+using BibliotecaVirtual.Consola.Modelos;
 
 namespace BibliotecaVirtual.Repositorio
 {
-    internal class Generico<T> where T : BaseEntidad   
+    internal class RepositorioGenerico<T> where T : BaseEntidad   
     {
         public T Crear(T obj)
         {
@@ -42,13 +42,13 @@ namespace BibliotecaVirtual.Repositorio
 
         public List<T> VerTodos()
         {
-            List<T> libros;
+            List<T> lista;
 
             using (AppDbContext context = new AppDbContext())
             {
-                libros = context.Set<T>().ToList();
+                lista = context.Set<T>().ToList();
             }
-            return libros;
+            return lista;
         }
 
         public T Obtener(int id)

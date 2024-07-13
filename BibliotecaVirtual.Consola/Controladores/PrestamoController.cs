@@ -10,6 +10,8 @@ namespace BibliotecaVirtual.Consola.Controladores
         {
             var repo = new RepositorioPRestamo();
             
+            prestamo.FechaPrestamo = DateTime.Now;
+
             repo.Crear(prestamo);
 
             return prestamo;
@@ -21,6 +23,7 @@ namespace BibliotecaVirtual.Consola.Controladores
             var repo = new RepositorioPRestamo();
 
             prestamo.Estado = EstadoPrestamoEnum.Finalizado;
+            prestamo.FechaPrestamo = DateTime.Now;
 
             repo.Actualizar(prestamo);
 

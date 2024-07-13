@@ -1,32 +1,39 @@
 ﻿using BibliotecaVirtual.Consola.Modelos;
+using BibliotecaVirtual.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaVirtual.Consola.Controladores
 {
     public class PrestamoController
     {
-        public void CargarPrestamo(Prestamo p)
+        public Prestamo PrestarLibro(Prestamo prestamo)
         {
-            using (var context = new AppDbContext())
-            {
-                context.Database.EnsureCreated();
-                context.Set<Prestamo>().Add(p);
-                context.SaveChanges();
-            }
+            var repo = new RepositorioGenerico<Prestamo>();
+            
+            repo.Crear(prestamo);
+
+            return prestamo;
+
         }
 
-        public List<Prestamo> ListarPrestamos()
+        public Prestamo DevolverLibro(Prestamo prestamo)
         {
-            using (var context = new AppDbContext())
-            {
-                List<Prestamo> lista = context.Prestamos
-                    .Include(x => x.Libro)
-                    .Include(x => x.Usuario)
-                    .ToList();
+            var repo = new RepositorioGenerico<Prestamo>();
 
-                return lista;
-            }
+            prestamo.EstadoPrestamoEnum.Finalizado;
 
+            repo.Actualizar(prestamo);
+
+            return prestamo;
+        }
+
+        public List<Prestamo> ObtenerPrestamosActivos()
+        {
+            var repo = new RepositorioPRestamo<Prestamo>();
+
+            var lista = repo.VerTodos();
+
+            return lista;
         }
     }
 }

@@ -48,6 +48,7 @@ namespace BibliotecaVirtual.Repositorio
             {
                 lista = context.Set<T>().ToList();
             }
+
             return lista;
         }
 

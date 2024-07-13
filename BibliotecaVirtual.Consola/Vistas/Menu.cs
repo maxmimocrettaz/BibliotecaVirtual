@@ -21,27 +21,41 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
+            int opcion;
+            bool EsUnNumero;
+
             Console.Write("Opcion:");
-            int opcion = int.Parse(Console.ReadLine());
-            switch (opcion)
+            string Dato = Console.ReadLine();
+            EsUnNumero = int.TryParse(Dato, out opcion);
+            if (EsUnNumero)
             {
-                case 1:
-                    Console.Clear();
-                    MenuLibro();
-                    break;
-                case 2:
-                    Console.Clear();
-                    MenuUsuario();
-                    break;
-                case 3:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Opcion Invalida");
-                    Console.WriteLine();
-                    MostrarMenu();
-                    break;
+                int opcionM = opcion;
+
+                switch (opcionM)
+                {
+                    case 1:
+                        Console.Clear();
+                        MenuLibro();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        MenuUsuario();
+                        break;
+                    case 3:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Opcion Invalida");
+                        Console.WriteLine();
+                        MostrarMenu();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("El dato ingresado no es un numero");
+                MostrarMenu();
             }
         }
 
@@ -62,47 +76,61 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
+            int opcion;
+            bool EsUnNumero;
+
             Console.Write("Opcion:");
-            int opcionU = int.Parse(Console.ReadLine());
-            switch (opcionU)
+            string Dato = Console.ReadLine();
+            EsUnNumero = int.TryParse(Dato, out opcion);
+            if (EsUnNumero)
             {
-                case 1:
-                    Console.Clear();
-                    VistaUsuario.CargarUsuario();
-                    Console.WriteLine();
-                    MenuUsuario();
-                    break;
-                case 2:
-                    Console.Clear();
-                    //VistaUsuario.ModificarUsuario();
-                    Console.WriteLine();
-                    MenuUsuario();
-                    break;
-                case 3:
-                    Console.Clear();
-                    //VistaUsuario.MostrarTodosLosUsuarios();
-                    Console.WriteLine();
-                    MenuUsuario();
-                    break;
-                case 4:
-                    Console.Clear();
-                    //VistaUsuario.BuscarPorNombre();
-                    Console.WriteLine();
-                    MenuUsuario();
-                    break;
-                case 5:
-                    Console.Clear();
-                    MostrarMenu();
-                    break;
-                case 6:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Opcion Invalida");
-                    Console.WriteLine();
-                    MenuUsuario();
-                    break;
+                int opcionU = opcion;
+
+                switch (opcionU)
+                {
+                    case 1:
+                        Console.Clear();
+                        VistaUsuario.CargarUsuario();
+                        Console.WriteLine();
+                        MenuUsuario();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        //VistaUsuario.ModificarUsuario();
+                        Console.WriteLine();
+                        MenuUsuario();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        //VistaUsuario.MostrarTodosLosUsuarios();
+                        Console.WriteLine();
+                        MenuUsuario();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        //VistaUsuario.BuscarPorNombre();
+                        Console.WriteLine();
+                        MenuUsuario();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        MostrarMenu();
+                        break;
+                    case 6:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Opcion Invalida");
+                        Console.WriteLine();
+                        MenuUsuario();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("El dato ingresado no es un numero");
+                MenuUsuario();
             }
         }
 
@@ -125,59 +153,74 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
+
+            int opcion;
+            bool EsUnNumero;
+
             Console.Write("Opcion:");
-            int opcionL = int.Parse(Console.ReadLine());
-            switch (opcionL)
+            string Dato = Console.ReadLine();
+            EsUnNumero = int.TryParse(Dato, out opcion);
+            if (EsUnNumero)
             {
-                case 1:
-                    Console.Clear();
-                    //VistaPrestamo.PrestarLibro();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 2:
-                    Console.Clear();
-                    //VistaPrestamo.DevolverLibro();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 3:
-                    Console.Clear();
-                    //VistaPrestamo.VerPrestamosActivos();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 4:
-                    Console.Clear();
-                    //VistaLibro.ResgistrarLibro();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 5:
-                    Console.Clear();
-                    //VistaLibro.ActualizarLibro();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 6:
-                    Console.Clear();
-                    //VistaLibro.VerTodosLosLibros();
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
-                case 7:
-                    Console.Clear();
-                    MostrarMenu();
-                    break;
-                case 8:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Opcion Invalida");
-                    Console.WriteLine();
-                    MenuLibro();
-                    break;
+                int opcionL = opcion;
+                //int opcionL = int.Parse(Console.ReadLine());
+                switch (opcionL)
+                {
+                    case 1:
+                        Console.Clear();
+                        //VistaPrestamo.PrestarLibro();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        //VistaPrestamo.DevolverLibro();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        //VistaPrestamo.VerPrestamosActivos();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        //VistaLibro.ResgistrarLibro();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        //VistaLibro.ActualizarLibro();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        //VistaLibro.VerTodosLosLibros();
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        MostrarMenu();
+                        break;
+                    case 8:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Opcion Invalida");
+                        Console.WriteLine();
+                        MenuLibro();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("El dato ingresado no es un numero");
+                MenuLibro();
             }
         }
     }

@@ -7,7 +7,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
         UsuarioVista VistaUsuario = new UsuarioVista();
         PrestamoVista VistaPrestamo = new PrestamoVista();
-        //LibroVista VistaLibro = new LibroVista();
+        LibroVista VistaLibro = new LibroVista();
         public void MostrarMenu()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -20,18 +20,21 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
-            int opcion = int.Parse(Console.ReadLine());
-            switch (opcion)
+            Console.WriteLine();
+            Console.Write("Opcion:");
+            string opcionM = Console.ReadLine();
+
+            switch (opcionM)
             {
-                case 1:
+                case "1":
                     Console.Clear();
                     MenuLibro();
                     break;
-                case 2:
+                case "2":
                     Console.Clear();
                     MenuUsuario();
                     break;
-                case 3:
+                case "3":
                     Environment.Exit(0);
                     break;
                 default:
@@ -41,6 +44,8 @@ namespace BibliotecaVirtual.Consola.Vistas
                     MostrarMenu();
                     break;
             }
+
+
         }
 
         public void MenuUsuario()
@@ -59,39 +64,41 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
+            Console.Write("Opcion:");
+            string opcionU = Console.ReadLine();
 
-            int opcionU = int.Parse(Console.ReadLine());
             switch (opcionU)
             {
-                case 1:
+                case "1":
                     Console.Clear();
-                    VistaUsuario.CargarUsuario();
+                    VistaUsuario.RegistrarNuevoUsuario();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
-                case 2:
+                case "2":
                     Console.Clear();
-                    //VistaUsuario.ModificarUsuario();
+                    VistaUsuario.ModificarUsuario();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
-                case 3:
+                case "3":
                     Console.Clear();
-                    //VistaUsuario.MostrarTodosLosUsuarios();
+                    VistaUsuario.MostrarTodosLosUsuarios();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
-                case 4:
+                case "4":
                     Console.Clear();
-                    //VistaUsuario.BuscarPorNombre();
+                    VistaUsuario.BuscarPorNombre();
                     Console.WriteLine();
                     MenuUsuario();
                     break;
-                case 5:
+                case "5":
                     Console.Clear();
                     MostrarMenu();
                     break;
-                case 6:
+                case "6":
                     Environment.Exit(0);
                     break;
                 default:
@@ -101,6 +108,7 @@ namespace BibliotecaVirtual.Consola.Vistas
                     MenuUsuario();
                     break;
             }
+
         }
 
         public void MenuLibro()
@@ -121,51 +129,53 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
+            Console.Write("Opcion:");
+            string opcionL = Console.ReadLine();
 
-            int opcionL = int.Parse(Console.ReadLine());
             switch (opcionL)
             {
-                case 1:
+                case "1":
                     Console.Clear();
-                    //VistaPrestamo.PrestarLibro();
+                    VistaPrestamo.PrestarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 2:
+                case "2":
                     Console.Clear();
-                    //VistaPrestamo.DevolverLibro();
+                    VistaPrestamo.DevolverLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 3:
+                case "3":
                     Console.Clear();
-                    //VistaPrestamo.VerPrestamosActivos();
+                    VistaPrestamo.VerPrestamosActivos();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 4:
+                case "4":
                     Console.Clear();
-                    //VistaLibro.ResgistrarLibro();
+                    VistaLibro.RegistrarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 5:
+                case "5":
                     Console.Clear();
-                    //VistaLibro.ActualizarLibro();
+                    VistaLibro.ActualizarLibro();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 6:
+                case "6":
                     Console.Clear();
-                    //VistaLibro.VerTodosLosLibros();
+                    VistaLibro.VerTodosLosLibros();
                     Console.WriteLine();
                     MenuLibro();
                     break;
-                case 7:
+                case "7":
                     Console.Clear();
                     MostrarMenu();
                     break;
-                case 8:
+                case "8":
                     Environment.Exit(0);
                     break;
                 default:

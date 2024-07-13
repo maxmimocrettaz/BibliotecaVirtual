@@ -7,7 +7,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
         UsuarioVista VistaUsuario = new UsuarioVista();
         PrestamoVista VistaPrestamo = new PrestamoVista();
-        //LibroVista VistaLibro = new LibroVista();
+        LibroVista VistaLibro = new LibroVista();
         public void MostrarMenu()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -163,42 +163,41 @@ namespace BibliotecaVirtual.Consola.Vistas
             if (EsUnNumero)
             {
                 int opcionL = opcion;
-                //int opcionL = int.Parse(Console.ReadLine());
                 switch (opcionL)
                 {
                     case 1:
                         Console.Clear();
-                        //VistaPrestamo.PrestarLibro();
+                        VistaPrestamo.PrestarLibro();
                         Console.WriteLine();
                         MenuLibro();
                         break;
                     case 2:
                         Console.Clear();
-                        //VistaPrestamo.DevolverLibro();
+                        VistaPrestamo.DevolverLibro();
                         Console.WriteLine();
                         MenuLibro();
                         break;
                     case 3:
                         Console.Clear();
-                        //VistaPrestamo.VerPrestamosActivos();
+                        VistaPrestamo.VerPrestamosActivos();
                         Console.WriteLine();
                         MenuLibro();
                         break;
                     case 4:
                         Console.Clear();
-                        //VistaLibro.ResgistrarLibro();
+                        VistaLibro.RegistrarLibro();
                         Console.WriteLine();
                         MenuLibro();
                         break;
                     case 5:
                         Console.Clear();
-                        //VistaLibro.ActualizarLibro();
+                        VistaLibro.ActualizarLibro();
                         Console.WriteLine();
                         MenuLibro();
                         break;
                     case 6:
                         Console.Clear();
-                        //VistaLibro.VerTodosLosLibros();
+                        VistaLibro.VerTodosLosLibros();
                         Console.WriteLine();
                         MenuLibro();
                         break;

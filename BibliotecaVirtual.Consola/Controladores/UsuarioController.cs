@@ -40,7 +40,7 @@ namespace BibliotecaVirtual.Consola.Controladores
             return usuario;
         }
 
-        public Boolean ELiminar (Usuario usuario)
+        public bool ELiminar (Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
             repo.Eliminar(usuario);

@@ -18,10 +18,9 @@ namespace BibliotecaVirtual.Consola.Modelos
             Nombre=nombre;
             DNI=dni;
         }
-        public Usuario() 
+        public Usuario()
         {
-        
-        }
 
+        }
     }
 }

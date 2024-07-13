@@ -14,7 +14,7 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.Write("Libro nro: ");
             presta.LibroId = int.Parse(Console.ReadLine());
             Console.Write("Se asigna a: ");
-            presta.LectorId = int.Parse(Console.ReadLine());
+            presta.UsuarioId = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
             prestamoController.CargarPrestamo(presta);
@@ -27,7 +27,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 
             foreach (var item in lista)
             {
-                Console.WriteLine($"El libro: {item.Libro.Titulo}, lo tiene: {item.Lector.Nombre}.");
+                Console.WriteLine($"El libro: {item.Libro.Titulo}, lo tiene: {item.Usuario.Nombre}.");
             }
             Console.WriteLine("-----------------");
 

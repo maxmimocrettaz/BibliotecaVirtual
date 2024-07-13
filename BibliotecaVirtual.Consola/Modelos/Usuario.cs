@@ -17,7 +17,10 @@ namespace BibliotecaVirtual.Consola.Modelos
             Nombre=nombre;
             Prestamos=libro;
         }
-        public Usuario() { }
+        public Usuario() 
+        {
+        
+        }
 
-}
+    }
 }

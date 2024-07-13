@@ -37,16 +37,16 @@ namespace BibliotecaVirtual.Consola.Vistas
         {
 
             var lista = prestamoController.ObtenerPrestamosActivos();
-            
-            if (item.Estado == Enumeraciones.EstadoPrestamoEnum.Iniciado)
+
+            foreach (var item in lista)
             {
-                foreach (var item in lista)
+                if (item.Estado == Enumeraciones.EstadoPrestamoEnum.Iniciado)
                 {
                     Console.WriteLine($"El libro: {item.Libro.Titulo}, lo tiene: {item.Usuario.Nombre}.");
                 }
-                Console.WriteLine("-----------------");
+
             }
-            
+            Console.WriteLine("-----------------");
 
         }
     }

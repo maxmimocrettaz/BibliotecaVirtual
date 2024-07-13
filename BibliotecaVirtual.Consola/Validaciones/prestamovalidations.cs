@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public class Prestamovalidators : AbstractValidator<Prestamo>
+    public class PrestamoValidator : AbstractValidator<Prestamo>
     {
-        public Prestamovalidators() 
+        public PrestamoValidator() 
         {
             RuleFor(x => x.Libro).NotEmpty();
             RuleFor(x => x.Usuario).NotEmpty();

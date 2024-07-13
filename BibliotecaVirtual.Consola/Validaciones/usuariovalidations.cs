@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public class usuariovalidations : AbstractValidator<Usuario>
+    public class UsuarioValidator : AbstractValidator<Usuario>
     {
-      public usuariovalidations()
+      public UsuarioValidator()
         {
-            RuleFor(x => x.Nombre).NotEmpty().NotNull().WithMessage("Este parametro no puede estar vacio");
-            RuleFor(x => x.Prestamos).NotEmpty();
+            RuleFor(x => x.Nombre).NotEmpty().NotNull().WithMessage("Este parametro no puede estar vacio.");
         }
     }
 }

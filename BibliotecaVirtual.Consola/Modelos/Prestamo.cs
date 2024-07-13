@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaVirtual.Consola.Enumeraciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Modelos
 {
-    public class Prestamo : BaseEntidad
+    public class Prestamo
     {
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
@@ -14,7 +15,15 @@ namespace BibliotecaVirtual.Consola.Modelos
         public int LibroId { get; set; }
         public Libro Libro { get; set; }
 
+        public EstadoPrestamoEnum Estado { get; set; }
         public DateTime FechaPrestamo { get; set; }
-        public DateTime FechaDevolucion { get; set; }
+
+        public Prestamo()
+        {
+            Estado=EstadoPrestamoEnum.Iniciado;
+        }
+        
+
+
     }
 }

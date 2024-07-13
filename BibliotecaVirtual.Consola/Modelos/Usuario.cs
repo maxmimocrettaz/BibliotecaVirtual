@@ -11,11 +11,12 @@ namespace BibliotecaVirtual.Consola.Modelos
     {
         [Required]
         public string Nombre {get; set;}
-        public List<Prestamo> Prestamos {get; set;}
-        public Usuario(string nombre, List<Prestamo> libro)
+        [Required]
+        public string DNI { get; set; }
+        public Usuario(string nombre, string dni)
         {
             Nombre=nombre;
-            Prestamos=libro;
+            DNI=dni;
         }
         public Usuario() 
         {

@@ -10,10 +10,10 @@ namespace BibliotecaVirtual.Consola.Vistas
 {
     public class LibroVista
     {
-        LibroController controladorLibros = new LibroController();
+     private LibroController librosController = new LibroController();
 
 
-        public void CargarDatosLibro()
+        public void RegistrarLibro()
         {
             Libro libroNuevo = new Libro();
 
@@ -25,29 +25,36 @@ namespace BibliotecaVirtual.Consola.Vistas
 
             libroNuevo.Titulo = Console.ReadLine();
 
-            Console.WriteLine("Categoría:");
 
-            libroNuevo.Categoria = Console.ReadLine();
+           
 
-            Console.WriteLine("Año:");
-
-            libroNuevo.Año = int.Parse(Console.ReadLine());
-
-          controladorLibros.GuardarLibro(libroNuevo);
+         librosController.RegistrarLibro(libroNuevo);
             
 
 
         }
         
-        public void MostrarLibros()
+        public void ActualizarLibro()
         {
-            List<Libro> listadoLibros = controladorLibros.ObtenerLibros();
+            string Titulo;
+          
+            Console.Write("Titulo: ");
+           Titulo = Console.ReadLine();
+           
+            librosController.ActualizarLibro(Titulo);
+
+        }
+
+
+        public void VerTodosLosLibros()
+        {
+            List<Libro> listadoLibros = librosController.ObtenerTodos();
 
             Console.WriteLine("Listado de Libros cargados");
 
             foreach (var item in listadoLibros)
             {
-                Console.WriteLine($">Autor: {item.Autor} -Titulo: {item.Titulo} -Categoria: {item.Categoria} -Año: {item.Año} ");
+                Console.WriteLine($"Autor: {item.Autor} Titulo: {item.Titulo} Estado: {item.EstaPrestado} ");
             }
         }
 

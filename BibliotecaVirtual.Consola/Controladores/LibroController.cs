@@ -10,34 +10,41 @@ namespace BibliotecaVirtual.Consola.Controladores
 {
     public class LibroController
     {
-        Repositorio repo = Repositorio.ObtenerInstancia();
-        public void GuardarLibro(Libro l)
-        {
-
-            
-
-            repo.libros.Add(l);
-
-
-
-
-
+        public void RegistrarLibro(Libro libro)
+        {    
+                using (AppDbContext context = new AppDbContext())
+                {
+                    context.Database.EnsureCreated();
+                    context.Libros.Add(libro);
+                    context.SaveChanges();
+                }
         }
 
-        public  List<Libro> ObtenerLibros()
+        public void ActualizarLibro(string titulo)
         {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
+                if (libros != null)
+                {
+                    libros.EstaPrestado = true;
 
-            return repo.libros;
-        
-        
+                    context.SaveChanges();   
+                }
+            }
         }
-        
 
+        public  List<Libro> ObtenerTodos()
+        {
+            List<Libro> libros;
 
-
-
-       
-
+            using (AppDbContext context = new AppDbContext())
+            {
+                context.Database.EnsureCreated();
+                libros = context.Libros.ToList();
+            }
+            return libros;
+        }
 
     }
 }

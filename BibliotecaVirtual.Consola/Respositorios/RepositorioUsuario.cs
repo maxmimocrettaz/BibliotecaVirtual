@@ -9,7 +9,7 @@ namespace BibliotecaVirtual.Consola.Respositorios
 {
     public class RepositorioUsuario
     {
-        public Usuario Obtener(string nombre)
+        public Usuario ObtenerPorNombre(string nombre)
         {
             Usuario u = new Usuario();
 

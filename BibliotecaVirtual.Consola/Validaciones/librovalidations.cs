@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public class librovalidations : AbstractValidator<Libro>
+    public class Librovalidators : AbstractValidator<Libro>
     {
-        public librovalidations() 
+        public Librovalidators() 
         {
             RuleFor(x => x.Titulo).NotNull().NotEmpty();
             RuleFor(x => x.Autor).NotNull().NotEmpty();

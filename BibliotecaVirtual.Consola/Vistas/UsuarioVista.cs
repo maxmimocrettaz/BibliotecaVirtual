@@ -61,7 +61,7 @@ namespace BibliotecaVirtual.Consola.Vistas
         public void BuscarPorNombre()
         {
             Usuario buscado = new Usuario();
-            Console.Write("Ingrese el nombre del usuario a buscar:")
+            Console.Write("Ingrese el nombre del usuario a buscar:");
             nuevoUsuario.Nombre = Console.ReadLine();
 
             buscado = controladorUsuario.ObtenerUsuarioPorNombre(nuevoUsuario);

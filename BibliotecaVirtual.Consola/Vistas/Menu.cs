@@ -20,6 +20,8 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
+            Console.Write("Opcion:");
             int opcion = int.Parse(Console.ReadLine());
             switch (opcion)
             {
@@ -59,7 +61,8 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
-
+            Console.WriteLine();
+            Console.Write("Opcion:");
             int opcionU = int.Parse(Console.ReadLine());
             switch (opcionU)
             {
@@ -121,7 +124,8 @@ namespace BibliotecaVirtual.Consola.Vistas
             Console.WriteLine("|                            |");
             Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             Console.ForegroundColor = ConsoleColor.Gray;
-
+            Console.WriteLine();
+            Console.Write("Opcion:");
             int opcionL = int.Parse(Console.ReadLine());
             switch (opcionL)
             {

@@ -7,7 +7,7 @@ namespace BibliotecaVirtual.Consola.Vistas
     public class PrestamoVista
     {
         PrestamoController prestamoController = new PrestamoController();
-        public void Asignar()
+        public void PrestarLibro()
         {
             Prestamo presta = new Prestamo();
 
@@ -17,19 +17,36 @@ namespace BibliotecaVirtual.Consola.Vistas
             presta.UsuarioId = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            prestamoController.CargarPrestamo(presta);
+            prestamoController.PrestarLibro(presta);
         }
 
-        public void VerPrestamos()
+        public void DevolverLibro()
+        {
+            Prestamo presta = new Prestamo();
+
+            Console.Write("Libro nro: ");
+            presta.LibroId = int.Parse(Console.ReadLine());
+            Console.Write("Lo devuelve el usuario nro: ");
+            presta.UsuarioId = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            prestamoController.DevolverLibro(presta);
+        }
+
+        public void VerPrestamosActivos()
         {
 
-            var lista = prestamoController.ListarPrestamos();
-
-            foreach (var item in lista)
+            var lista = prestamoController.ObtenerPrestamosActivos();
+            
+            if (item.Estado == Enumeraciones.EstadoPrestamoEnum.Iniciado)
             {
-                Console.WriteLine($"El libro: {item.Libro.Titulo}, lo tiene: {item.Usuario.Nombre}.");
+                foreach (var item in lista)
+                {
+                    Console.WriteLine($"El libro: {item.Libro.Titulo}, lo tiene: {item.Usuario.Nombre}.");
+                }
+                Console.WriteLine("-----------------");
             }
-            Console.WriteLine("-----------------");
+            
 
         }
     }

@@ -1,6 +1,9 @@
 ﻿using BibliotecaVirtual.Consola.Modelos;
 using BibliotecaVirtual.Consola.Respositorios;
+using BibliotecaVirtual.Consola.Validaciones;
 using BibliotecaVirtual.Repositorio;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,11 +18,24 @@ namespace BibliotecaVirtual.Consola.Controladores
         public Usuario Guardar(Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
+            var Validator = new UsuarioValidator();
+
+            ValidationResult result = Validator.Validate(usuario);
+
+            if (! result.IsValid)
+            {
+                foreach (var failure in result.Errors)
+                { 
+                    
+                }
+            }
+
             usuario.FechaCreacion = DateTime.Now;
             usuario.FechaModificacion = DateTime.Now;
             repo.Crear(usuario);
            
             return usuario; 
+
         }
 
         public List<Usuario> ObtenerUsuarios()
@@ -36,7 +52,19 @@ namespace BibliotecaVirtual.Consola.Controladores
         public Usuario Modificar (Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
+            var Validator = new UsuarioValidator();
+
+            ValidationResult result = Validator.Validate(usuario);
+
+            if (!result.IsValid)
+            {
+                foreach (var failure in result.Errors)
+                {
+
+                }
+            }
             usuario.FechaModificacion = DateTime.Now;
+
             repo.Actualizar(usuario);
 
             return usuario;

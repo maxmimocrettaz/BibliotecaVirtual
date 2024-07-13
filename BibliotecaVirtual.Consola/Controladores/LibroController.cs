@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BibliotecaVirtual.Consola.Modelos;
 using BibliotecaVirtual.Consola.Enumeraciones;
+using FluentValidation;
+using FluentValidation.Results;
+using BibliotecaVirtual.Consola.Validaciones;
 
 
 namespace BibliotecaVirtual.Consola.Controladores
@@ -15,9 +18,21 @@ namespace BibliotecaVirtual.Consola.Controladores
         {    
                 using (AppDbContext context = new AppDbContext())
                 {
-                    context.Database.EnsureCreated();
+                var Validator = new LibroValidator();
+
+                ValidationResult result = Validator.Validate(libro);
+
+                if (!result.IsValid)
+                {
+                    foreach (var failure in result.Errors)
+                    {
+
+                    }
+
+                }
+                context.Database.EnsureCreated();
                     context.Libros.Add(libro);
-                    context.SaveChanges();
+                context.SaveChanges();
                 }
         }
 
@@ -25,7 +40,8 @@ namespace BibliotecaVirtual.Consola.Controladores
         {
             using (AppDbContext context = new AppDbContext())
             {
-                 var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
+
+                var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
 
                 libros.Estado = (EstadoLibroEnum)2;
 

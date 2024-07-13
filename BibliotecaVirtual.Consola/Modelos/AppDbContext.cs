@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BibliotecaVirtual.Consola.Modelos
 {
@@ -22,22 +18,22 @@ namespace BibliotecaVirtual.Consola.Modelos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Prestamo>()
-                .HasKey(x => new { x.LibroId, x.LectorId });
+                .HasKey(x => new { x.LibroId, x.UsuarioId });
 
             modelBuilder.Entity<Prestamo>()
                 .HasOne(x => x.Libro)
-                .WithMany(x => x.Lectores)
+                .WithMany(x => x.Usuarios)
                 .HasForeignKey(x => x.LibroId);
 
             modelBuilder.Entity<Prestamo>()
-                .HasOne(x => x.Lector)
+                .HasOne(x => x.Usuario)
                 .WithMany(x => x.Libros)
-                .HasForeignKey(x => x.LectorId);
+                .HasForeignKey(x => x.UsuarioId);
 
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Libro> Libros { get; set; }
-        public DbSet<Lector> Lectores { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
 
         // ---

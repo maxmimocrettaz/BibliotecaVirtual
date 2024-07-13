@@ -1,4 +1,6 @@
 ﻿using BibliotecaVirtual.Consola.Modelos;
+using BibliotecaVirtual.Consola.Respositorios;
+using BibliotecaVirtual.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,92 +12,47 @@ namespace BibliotecaVirtual.Consola.Controladores
 {
     class UsuarioController
     {
-        public void NuevoUsuario(Usuario usuario)
+        public Usuario Guardar(Usuario usuario)
         {
-            try
-            {
-                using (AppDbContext context = new AppDbContext())
-                {
-                    context.Database.EnsureCreated();
-                    context.Usuarios.Add(usuario);
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception e)
-            {
+            var repo = new RepositorioGenerico<Usuario>();
 
-                Console.WriteLine($"Error {e.Message}");
-                if (e.InnerException != null)
-                {
-                    Console.WriteLine($"Excepción interna: {e.InnerException.Message}");
-                }
-            }
-            
+            repo.Crear(usuario);
+           
+            return usuario; 
         }
 
-        public List<Usuario> ObtenerUsuarios ()
+        public List<Usuario> ObtenerUsuarios()
         {
-            List<Usuario> usuarios;
-            
-            using (AppDbContext context = new AppDbContext())
-            {
-                    context.Database.EnsureCreated();
-                    usuarios = context.Usuarios.ToList();
+            List<Usuario> usuarios = new List<Usuario>();
+            var repo = new RepositorioGenerico<Usuario>();
 
-            }
+            usuarios = repo.VerTodos();
+
             return usuarios;
         }
 
 
-        public void ActualizarUsuario (string email, string nuevoNombre, string nuevoCorreo)
+        public Usuario Modificar (Usuario usuario)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                var usuario = context.Usuarios.FirstOrDefault(u => u.Email == email);
-                if(usuario != null)
-                {
-                    usuario.Nombre = nuevoNombre;
-                    usuario.Email = nuevoCorreo;
+            var repo = new RepositorioGenerico<Usuario>();
+            repo.Actualizar(usuario);
 
-                    context.SaveChanges();
-                    Console.WriteLine("Usuario actualizado correctamente.");
-                }else
-                {
-                    Console.WriteLine("Usuario no encontrado.");
-                }
-            }
+            return usuario;
         }
 
-        public void EliminarUsuario (string email)
+        public Boolean ELiminar (Usuario usuario)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                var usuario = context.Usuarios.FirstOrDefault(u => u.Email == email);
-                if(usuario != null)
-                {
-                    context.Usuarios.Remove(usuario);
-                    context.SaveChanges();
-                    Console.WriteLine("Usuario eliminado correctamente");
-                }else
-                {
-                    Console.WriteLine("Usuario no encontrado.");
-                }
-            }
+            var repo = new RepositorioGenerico<Usuario>();
+            repo.Eliminar(usuario);
+
+            return true; 
         }
 
-        public Usuario ObtenerUsuarioPorId (int id)
+        public Usuario ObtenerUsuarioPorNombre (Usuario usuario)
         {
-            Usuario usuario;
-            using (AppDbContext context = new AppDbContext())
-            {
-                 usuario = context.Usuarios.Where(x => x.Id == id)
-                    .First();
-            }
-            if(usuario == null)
-            {
-                Console.WriteLine("Usuario no encontrado");
-                return null;
-            }
+            var repo = new RepositorioUsuario();
+            repo.ObtenerPorNombre(usuario.Nombre);
+
             return usuario;
         }
     }

@@ -23,8 +23,6 @@ namespace BibliotecaVirtual.Consola.Modelos
         {
             Estado=EstadoPrestamoEnum.Iniciado;
         }
-        
-
 
     }
 }

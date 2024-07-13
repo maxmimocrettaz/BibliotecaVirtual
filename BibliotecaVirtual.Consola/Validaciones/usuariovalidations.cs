@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BibliotecaVirtual.Consola.Modelos;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Validaciones
 {
-    public class usuariovalidations : AbstractValidator<usuariovalidations>
+    public class usuariovalidations : AbstractValidator<Usuario>
     {
       public usuariovalidations()
         {
-            RuleFor(x =>x)
+          
         }
     }
 }

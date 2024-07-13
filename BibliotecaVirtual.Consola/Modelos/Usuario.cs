@@ -1,26 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Modelos
 {
-    public class Usuario : BaseEntidad
+    public class Usuario
     {
-        [Required]
-        public string Nombre {get; set;}
-        public List<Prestamo> Prestamos {get; set;}
-        public Usuario(string nombre, List<Prestamo> libro)
+        public Usuario()
         {
-            Nombre=nombre;
-            Prestamos=libro;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
-        public Usuario() 
-        {
-        
-        }
-
     }
 }

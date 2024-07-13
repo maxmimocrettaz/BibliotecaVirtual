@@ -24,6 +24,7 @@ namespace BibliotecaVirtual.Consola.Controladores
                 }
 
             }
+            prestamo.FechaPrestamo = DateTime.Now;
 
             repo.Crear(prestamo);
 
@@ -36,6 +37,7 @@ namespace BibliotecaVirtual.Consola.Controladores
             var repo = new RepositorioPRestamo();
 
             prestamo.Estado = EstadoPrestamoEnum.Finalizado;
+            prestamo.FechaPrestamo = DateTime.Now;
 
             repo.Actualizar(prestamo);
 

@@ -22,12 +22,12 @@ namespace BibliotecaVirtual.Consola.Modelos
 
             modelBuilder.Entity<Prestamo>()
                 .HasOne(x => x.Libro)
-                .WithMany(x => x.Usuarios)
+                .WithMany(x => x.Prestamos)
                 .HasForeignKey(x => x.LibroId);
 
             modelBuilder.Entity<Prestamo>()
                 .HasOne(x => x.Usuario)
-                .WithMany(x => x.Libros)
+                .WithMany(x => x.Prestamos)
                 .HasForeignKey(x => x.UsuarioId);
 
             base.OnModelCreating(modelBuilder);

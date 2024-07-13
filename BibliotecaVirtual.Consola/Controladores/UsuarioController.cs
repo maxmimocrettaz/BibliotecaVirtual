@@ -18,7 +18,6 @@ namespace BibliotecaVirtual.Consola.Controladores
         public Usuario Guardar(Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
-
             var Validator = new UsuarioValidator();
 
             ValidationResult result = Validator.Validate(usuario);
@@ -29,9 +28,10 @@ namespace BibliotecaVirtual.Consola.Controladores
                 { 
                     
                 }
-
             }
 
+            usuario.FechaCreacion = DateTime.Now;
+            usuario.FechaModificacion = DateTime.Now;
             repo.Crear(usuario);
            
             return usuario; 
@@ -62,14 +62,15 @@ namespace BibliotecaVirtual.Consola.Controladores
                 {
 
                 }
-
             }
+            usuario.FechaModificacion = DateTime.Now;
+
             repo.Actualizar(usuario);
 
             return usuario;
         }
 
-        public Boolean ELiminar (Usuario usuario)
+        public bool ELiminar (Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
             repo.Eliminar(usuario);

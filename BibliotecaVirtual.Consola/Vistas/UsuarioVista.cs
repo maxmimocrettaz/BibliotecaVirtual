@@ -8,69 +8,64 @@ namespace BibliotecaVirtual.Consola.Vistas
         UsuarioController controladorUsuario = new UsuarioController();
         Usuario nuevoUsuario = new Usuario();
 
-        public void CargarUsuario()
+        public void RegistrarNuevoUsuario()
         {
 
             Console.Write("Nombre: ");
             nuevoUsuario.Nombre = Console.ReadLine();
-            Console.Write("Apellido: ");
-            nuevoUsuario.Apellido = Console.ReadLine();
-            Console.Write("Email: ");
-            nuevoUsuario.Email = Console.ReadLine();
+            Console.Write("DNI: ");
+            nuevoUsuario.DNI = Console.ReadLine();
 
-            controladorUsuario.NuevoUsuario(nuevoUsuario);
+            controladorUsuario.Guardar(nuevoUsuario);
 
         }
 
-        public void ObtenerUsuarios()
+        public void MostrarTodosLosUsuarios()
         {
-            List<Usuario> listadousuarios = controladorUsuario.ObtenerUsuarios();
-
-            Console.WriteLine("listado de usuarios registrados en el sistema");
-
-            foreach (var item in listadousuarios)
+            List<Usuario>listaUsuarios = new List<Usuario>();
+            Console.Write("Lista de usuarios:");
+            listaUsuarios = controladorUsuario.ObtenerUsuarios();
+            foreach (var usuario in listaUsuarios)
             {
-                Console.WriteLine($"<Nombre>: {item.Nombre}, <Apellido>: {item.Apellido}, <Email>: {item.Email}");
+                Console.Write("Nombre: " +  usuario.Nombre + " - " + "DNI: " + usuario.DNI);
             }
 
         }
 
-        public void ActualizarUsuario()
+        public void ModificarUsuario()
         {
-            string email;
-            string nombre;
-            string apellido;
-            Console.Write("Email: ");
-            email = Console.ReadLine();
-            Console.Write("Nombre: ");
-            nombre = Console.ReadLine();
-            Console.Write("Apellido: ");
-            apellido = Console.ReadLine();
+            
 
-            controladorUsuario.ActualizarUsuario(email, nombre, apellido);
+            Console.Write("Nuevo Nombre:");
+            nuevoUsuario.Nombre = Console.ReadLine();
+            Console.Write("Nuevo dni:");
+            nuevoUsuario.DNI = Console.ReadLine();
+
+            controladorUsuario.Modificar(nuevoUsuario);
 
         }
 
         public void EliminarUsuario()
         {
-            string email;
-            Console.Write("Email: ");
-            email = Console.ReadLine();
+            Usuario aeliminar = new Usuario();
 
-            controladorUsuario.EliminarUsuario(email);
+            Console.Write("Ingrese nombre del usuario a eliminar:");
+            nuevoUsuario.Nombre = Console.ReadLine();
+
+            aeliminar = controladorUsuario.ObtenerUsuarioPorNombre(nuevoUsuario);
+
+            controladorUsuario.ELiminar(aeliminar);
+            
         }
 
-        public void ObtenerUsuarioPorId()
+        public void BuscarPorNombre()
         {
-            int id;
-            Usuario usuario;
-            Console.Write("Ingrese Id: ");
-            id = int.Parse(Console.ReadLine());
+            Usuario buscado = new Usuario();
+            Console.Write("Ingrese el nombre del usuario a buscar:");
+            nuevoUsuario.Nombre = Console.ReadLine();
 
-
-            usuario = controladorUsuario.ObtenerUsuarioPorId(id);
-
-            Console.WriteLine($"<Nombre>: {usuario.Nombre}, <Apellido>: {usuario.Apellido}, <Email>: {usuario.Email}");
+            buscado = controladorUsuario.ObtenerUsuarioPorNombre(nuevoUsuario);
+            Console.WriteLine("Nombre" + buscado.Nombre + " - " + "DNI: " + buscado.DNI);
         }
 
 

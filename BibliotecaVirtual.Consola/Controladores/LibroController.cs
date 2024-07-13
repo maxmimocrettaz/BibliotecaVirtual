@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BibliotecaVirtual.Consola.Modelos;
+using BibliotecaVirtual.Consola.Enumeraciones;
 
 
 namespace BibliotecaVirtual.Consola.Controladores
@@ -26,7 +27,7 @@ namespace BibliotecaVirtual.Consola.Controladores
             {
                  var libros = context.Libros.FirstOrDefault(l => l.Titulo == titulo);
 
-                 libros.EstaPrestado = true;
+                libros.Estado = (EstadoLibroEnum)2;
 
                  context.SaveChanges();                
             }

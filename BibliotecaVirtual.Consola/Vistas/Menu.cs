@@ -4,6 +4,7 @@ namespace BibliotecaVirtual.Consola.Vistas
 {
     public class Menu
     {
+
         UsuarioVista VistaUsuario = new UsuarioVista();
         PrestamoVista VistaPrestamo = new PrestamoVista();
         //LibroVista VistaLibro = new LibroVista();

@@ -15,7 +15,8 @@ namespace BibliotecaVirtual.Consola.Controladores
         public Usuario Guardar(Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
-
+            usuario.FechaCreacion = DateTime.Now;
+            usuario.FechaModificacion = DateTime.Now;
             repo.Crear(usuario);
            
             return usuario; 
@@ -35,6 +36,7 @@ namespace BibliotecaVirtual.Consola.Controladores
         public Usuario Modificar (Usuario usuario)
         {
             var repo = new RepositorioGenerico<Usuario>();
+            usuario.FechaModificacion = DateTime.Now;
             repo.Actualizar(usuario);
 
             return usuario;

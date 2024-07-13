@@ -10,17 +10,17 @@ namespace BibliotecaVirtual.Consola.Modelos
     public class Usuario : BaseEntidad
     {
         [Required]
-        public string Nombre { get; set; }
-        public List<Prestamo> Prestamos { get; set; }
-        public Usuario(string nombre, List<Prestamo> libro)
+        public string Nombre {get; set;}
+        [Required]
+        public string DNI { get; set; }
+        public Usuario(string nombre, string dni)
         {
-            Nombre = nombre;
-            Prestamos = libro;
+            Nombre=nombre;
+            DNI=dni;
         }
         public Usuario()
         {
 
         }
-
     }
 }

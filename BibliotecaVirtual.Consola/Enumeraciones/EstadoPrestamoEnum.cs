@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaVirtual.Consola.Enumeraciones
 {
-    public enum EstadoLibroEnum
+    public enum EstadoPrestamoEnum
     {
-        Disponible = 1,
-        Prestado = 2,
+        Iniciado = 1,
+        Finalizado = 2,
     }
 }
